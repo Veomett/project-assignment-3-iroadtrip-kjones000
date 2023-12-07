@@ -270,7 +270,7 @@ public class IRoadTrip {
         boolean c2Found = false;
         while (!(minHeap.isEmpty()) && !c2Found){
             Node min = minHeap.poll();
-            for (Map.Entry<String, Double> distance : adjacencyMap.get(min.countryVertex).entrySet()) {
+            for (HashMap.Entry<String, Double> distance : adjacencyMap.get(min.countryVertex).entrySet()) {
                 Double v = distance.getValue();
                 Integer uWeight = capitalsMap.get(min.countryVertex).get(distance.getKey());
 
@@ -290,7 +290,7 @@ public class IRoadTrip {
         }
         for (Map.Entry<String, Integer> pathOrder: visitMap.entrySet()){
             StringBuilder sb = new StringBuilder();
-            sb.append(minHeap.poll().countryVertex + " --> "+ pathOrder.getKey() + ": " +pathOrder.getValue());
+            sb.append(minHeap.poll().countryVertex + " --> "+ pathOrder.getKey() + ": " + getDistance(country1, country2));
             path.add(String.valueOf(sb));
         }
 
